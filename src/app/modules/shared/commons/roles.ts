@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { Token } from "../models/token";
+import { Injectable } from '@angular/core';
+import { Token } from '../models/token';
 import jwt_decode from 'jwt-decode';
-import { getAccessToken } from "./cache-store";
+import { getAccessToken } from './cache-store';
 
 @Injectable()
 export class Roles {
@@ -14,7 +14,7 @@ export class Roles {
     const token: string | null = getAccessToken();
     const decode_token: Token = new Token(jwt_decode(token || ''));
 
-    for (var i = 0; i < roles.length; i++) {
+    for (let i = 0; i < roles.length; i++) {
       if (decode_token.authorities.includes(roles[i])) return true;
     }
 

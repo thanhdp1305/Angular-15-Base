@@ -22,19 +22,10 @@ import { ModalControl } from '../shared/services/modal-control.service';
     FooterComponent,
     SidebarComponent,
     PageNotFoundComponent,
-    GuestMainComponent
+    GuestMainComponent,
   ],
-  imports: [
-    CommonModule,
-    TranslateModule,
-    RouterModule.forChild(CoreRoutes)
-  ],
-  providers: [
-    Api,
-    NgSelectModule,
-    Roles,
-    ModalControl
-  ],
-  exports: [RouterModule]
+  imports: [CommonModule, TranslateModule, RouterModule.forChild(CoreRoutes)],
+  providers: [Api, NgSelectModule, Roles, ModalControl],
+  exports: [RouterModule],
 })
-export class CoreModule { }
+export class CoreModule {}

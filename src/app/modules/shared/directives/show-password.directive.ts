@@ -3,5 +3,7 @@ export function showPassword(element: HTMLInputElement): void {
     return;
   }
 
-  element.type == "text" ? element.type = "password" : element.type = "text";
+  element.type == 'text'
+    ? (element.type = 'password')
+    : (element.type = 'text');
 }

@@ -1,4 +1,4 @@
-import { NgbModalOptions } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 declare namespace BaseModal {
   export interface BaseModalOptions {

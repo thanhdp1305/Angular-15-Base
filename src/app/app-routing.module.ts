@@ -5,22 +5,23 @@ import { PageNotFoundComponent } from './modules/core/components/page-not-found/
 const routes: Routes = [
   {
     path: 'console',
-    loadChildren: () => import('./modules/console/console.module').then(m => m.ConsoleModule)
+    loadChildren: () =>
+      import('./modules/console/console.module').then((m) => m.ConsoleModule),
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/console/dashboard'
+    redirectTo: '/console/dashboard',
   },
   {
     path: '**',
     pathMatch: 'full',
-    component: PageNotFoundComponent
-  }
+    component: PageNotFoundComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

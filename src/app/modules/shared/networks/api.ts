@@ -1,57 +1,60 @@
-import { Injectable } from "@angular/core";
-import { HttpParams, HttpClient, HttpHeaders, HttpErrorResponse, HttpResponse, HttpRequest, HttpEvent } from '@angular/common/http';
-import { Router } from "@angular/router";
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
-import { environment } from "src/environments/environment";
-import { getAccessToken } from "../commons/cache-store";
+import { Injectable } from '@angular/core';
+import {
+  HttpParams,
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse,
+} from '@angular/common/http';
+import { Router } from '@angular/router';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import { getAccessToken } from '../commons/cache-store';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Api {
-
   responseType = {
-    'blob': 'blob',
-    'arraybuffer': 'arraybuffer',
-    'json': 'json',
-    'text': 'text',
-    'none': ''
+    blob: 'blob',
+    arraybuffer: 'arraybuffer',
+    json: 'json',
+    text: 'text',
+    none: '',
   };
 
   constructor(
     private http: HttpClient,
-    private route: Router,
-  ) {
+    private route: Router
+  ) {}
 
+  get language() {
+    return localStorage.getItem('lang') ?? '';
   }
-
-  get language () { return localStorage.getItem("lang") ?? ""; }
 
   /**
    * Lấy thông tin token từ cookie
    * @returns Token: string
    */
   getToken() {
-    return  getAccessToken();
+    return getAccessToken();
   }
 
   /**
-     * Get method
-     * @param url
-     */
+   * Get method
+   * @param url
+   */
   get(url: string, queryParams: any = null) {
-    let header: any = {
-      'Content-Type': 'application/json'
-    }
+    const header: any = {
+      'Content-Type': 'application/json',
+    };
     if (queryParams) {
-      let qrParams = new HttpParams();
+      const qrParams = new HttpParams();
       Object.keys(queryParams).forEach((key) => {
         qrParams.append(key, queryParams[key]);
       });
       console.log(qrParams.toString());
       header.params = qrParams;
-      
     }
     return this.http
       .get(environment.apiUrl + url, this.optionsRequest(header, false))
@@ -64,9 +67,9 @@ export class Api {
    * @param data
    */
   post(url: string, data: any) {
-    let header = {
-      'Content-Type': 'application/json'
-    }
+    const header = {
+      'Content-Type': 'application/json',
+    };
     data = JSON.stringify(data);
     return this.http
       .post(environment.apiUrl + url, data, this.optionsRequest(header, false))
@@ -80,7 +83,11 @@ export class Api {
    */
   postMultiPart(url: string, data: FormData) {
     return this.http
-      .post(environment.apiUrl + url, data, this.optionsRequest({}, false, 'blob'))
+      .post(
+        environment.apiUrl + url,
+        data,
+        this.optionsRequest({}, false, 'blob')
+      )
       .pipe(catchError(this.handleError));
   }
 
@@ -101,9 +108,9 @@ export class Api {
    * @param data
    */
   put(url: string, data: string) {
-    let header = {
-      'Content-Type': 'application/json'
-    }
+    const header = {
+      'Content-Type': 'application/json',
+    };
     data = JSON.stringify(data);
     return this.http
       .put(environment.apiUrl + url, data, this.optionsRequest(header, false))
@@ -126,15 +133,15 @@ export class Api {
    * @param url
    */
   delete(url: string, param = '') {
-    var token = this.getToken();
+    const token = this.getToken();
 
-    let options = {
+    const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: `Bearer ` + token,
-        "Accept-Language": this.language
+        'Accept-Language': this.language,
       }),
-      body: JSON.stringify(param)
+      body: JSON.stringify(param),
     };
 
     return this.http
@@ -143,39 +150,44 @@ export class Api {
   }
 
   optionsRequest(
-    headers: any = {}, 
-    reportProgress?: boolean, 
-    responseType?: 'arraybuffer'|'blob'|'json'|'text'|'', 
-    body: any = null) {
-    let token = this.getToken();
-    let header = {
+    headers: any = {},
+    reportProgress?: boolean,
+    responseType?: 'arraybuffer' | 'blob' | 'json' | 'text' | '',
+    body: any = null
+  ) {
+    const token = this.getToken();
+    const header = {
       Authorization: token ? `Bearer ` + token : ``,
       'Cache-Control': 'no-cache',
       Pragma: 'no-cache',
-      "Accept-Language": this.language,
-      ...headers
-    }
-    let options: any = { headers: new HttpHeaders(header) };
-    
+      'Accept-Language': this.language,
+      ...headers,
+    };
+    const options: any = { headers: new HttpHeaders(header) };
+
     if (reportProgress == true) {
       options['reportProgress'] = true;
     }
 
-    if (responseType != '' && responseType != null && responseType != undefined) {
+    if (
+      responseType != '' &&
+      responseType != null &&
+      responseType != undefined
+    ) {
       options['responseType'] = responseType;
     }
 
     if (body != null) {
       options['body'] = JSON.stringify(body);
     }
-    
+
     return options;
   }
 
   /**
    * Handle Error
-   * @param error 
-   * @returns 
+   * @param error
+   * @returns
    */
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -184,10 +196,12 @@ export class Api {
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,
-      console.error(`Backend returned code ${error!.status}, ` + `body was: ${error!.error}`);
+      console.error(
+        `Backend returned code ${error?.status}, ` + `body was: ${error?.error}`
+      );
     }
 
-    if (error?.error?.message == "ECT-00001110") {
+    if (error?.error?.message == 'ECT-00001110') {
       localStorage.clear();
       this?.route?.navigate(['/auth/signin']);
     }
@@ -206,5 +220,4 @@ export class Api {
       .get(environment.apiUrl + url, this.optionsRequest({}, false, 'blob'))
       .pipe(catchError(this.handleError));
   }
-
 }

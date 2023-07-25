@@ -14,10 +14,7 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
-  declarations: [
-    DashboardComponent,
-    ExampleComponent,
-  ],
+  declarations: [DashboardComponent, ExampleComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -27,11 +24,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     SharedModule,
     NgbPaginationModule,
     RouterModule.forChild(ConsoleRoutes),
-    NgSelectModule
+    NgSelectModule,
   ],
-  providers: [
-    Api
-  ],
-  exports: [RouterModule]
+  providers: [Api],
+  exports: [RouterModule],
 })
-export class ConsoleModule { }
+export class ConsoleModule {}

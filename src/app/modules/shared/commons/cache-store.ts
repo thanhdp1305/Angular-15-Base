@@ -1,4 +1,4 @@
-import { CacheKeys } from "../enums/caches";
+import { CacheKeys } from '../enums/caches';
 
 export function setAccessToken(token: string): void {
   localStorage.setItem(CacheKeys.appToken, token);

@@ -1,43 +1,42 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { REGEXP_DATE_INPUT, REGEXP_EMAIL } from '../../../shared/configs/regexp';
+import {
+  REGEXP_DATE_INPUT,
+  REGEXP_EMAIL,
+} from '../../../shared/configs/regexp';
 import { ModalControl } from '../../../shared/services/modal-control.service';
 import { ToastService } from '../../../shared/services/toast.service';
 import * as moment from 'moment';
 
-declare var $: any;
+declare let $: any;
 @Component({
   selector: 'app-example',
   templateUrl: './example.component.html',
-  styleUrls: ['./example.component.scss']
+  styleUrls: ['./example.component.scss'],
 })
 export class ExampleComponent implements OnInit, AfterViewInit {
-
   formDateInput!: FormGroup;
-  today = moment(new Date()).add(1, "days").format("YYYY-MM-DD");
+  today = moment(new Date()).add(1, 'days').format('YYYY-MM-DD');
 
   constructor(
     private fb: FormBuilder,
     private modalcontrol: ModalControl,
     private toastControl: ToastService
-  ) { 
+  ) {
     this.makeForm();
     this.makeFormValidation();
   }
-  
-  ngAfterViewInit(): void {
-    
-  }
 
-  ngOnInit(): void {
-  }
+  ngAfterViewInit(): void {}
+
+  ngOnInit(): void {}
 
   makeForm() {
     this.formDateInput = this.fb.group({
       datepicker: ['', Validators.pattern(REGEXP_DATE_INPUT)],
       dateInputMask: ['', Validators.pattern(REGEXP_DATE_INPUT)],
       daterange: [''],
-    })
+    });
   }
 
   /**
@@ -45,13 +44,13 @@ export class ExampleComponent implements OnInit, AfterViewInit {
    */
   openModal() {
     this.modalcontrol.show({
-      title: "modal_title_noti",
-      content: "text_no_results",
+      title: 'modal_title_noti',
+      content: 'text_no_results',
     });
   }
 
   openModalError() {
-    this.modalcontrol.showError(null)
+    this.modalcontrol.showError(null);
   }
 
   //VALIDATION FORM
@@ -59,9 +58,9 @@ export class ExampleComponent implements OnInit, AfterViewInit {
   formValidationIsSubmit = false;
   validationError = {
     email: {
-      required: "Vui lòng nhập email",
-      pattern: "Sai định dạng email"
-    }
+      required: 'Vui lòng nhập email',
+      pattern: 'Sai định dạng email',
+    },
   };
 
   /**
@@ -69,31 +68,30 @@ export class ExampleComponent implements OnInit, AfterViewInit {
    */
   makeFormValidation() {
     this.formValidation = this.fb.group({
-      email: ['', [Validators.required, Validators.pattern(REGEXP_EMAIL)]]
-    })
+      email: ['', [Validators.required, Validators.pattern(REGEXP_EMAIL)]],
+    });
   }
 
   /**
    * Submit form
-   */  
+   */
   submitFormValidation() {
     this.formValidationIsSubmit = true;
   }
 
-
   //Toast
   toast() {
-    this.toastControl.jqueryToastAdminLte("Thông báo", "Nội dung thông báo");
+    this.toastControl.jqueryToastAdminLte('Thông báo', 'Nội dung thông báo');
   }
 
   toastSweet2() {
-    this.toastControl.sweet2ToastNoti("Your work has been saved", 'success');
+    this.toastControl.sweet2ToastNoti('Your work has been saved', 'success');
   }
 
   toastSnackBar(): void {
     this.toastControl.toastSnackBar();
   }
-  
+
   //TABLES
   page = 1;
   totalRecords = 30;
@@ -104,10 +102,10 @@ export class ExampleComponent implements OnInit, AfterViewInit {
 
   //Ng Select
   items = [
-    { value: 1, label: "Giá trị 1" },
-    { value: 2, label: "Giá trị 2" },
-    { value: 3, label: "Giá trị 3" },
-    { value: 4, label: "Giá trị 4" }
+    { value: 1, label: 'Giá trị 1' },
+    { value: 2, label: 'Giá trị 2' },
+    { value: 3, label: 'Giá trị 3' },
+    { value: 4, label: 'Giá trị 4' },
   ];
   selectedItem: any = null; //Giá trị mặc định của ng-select là null
   eventChangeSelected: any = null;
@@ -119,4 +117,4 @@ export class ExampleComponent implements OnInit, AfterViewInit {
   handleEventNgSelect(e: any) {
     this.eventChangeSelected = e;
   }
-} 
+}

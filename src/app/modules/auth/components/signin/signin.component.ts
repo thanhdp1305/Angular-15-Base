@@ -4,19 +4,17 @@ import { Urls } from '../../../shared/configs/urls';
 import { setAccessToken } from 'src/app/modules/shared/commons/cache-store';
 import { uuidv4 } from 'src/app/modules/shared/commons/helpers';
 
-declare var $: any;
+declare let $: any;
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  styleUrls: ['./signin.component.scss'],
 })
 export class SigninComponent implements OnInit {
-  constructor(
-    private router: Router,) {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   signIn(): void {
     setAccessToken(uuidv4());

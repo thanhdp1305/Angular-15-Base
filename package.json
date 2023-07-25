@@ -12,7 +12,7 @@
     "build-staging": "ng build --configuration staging",
     "build-demo": "ng build --configuration demo",
     "build-dev": "ng build --configuration develop",
-    "lint": "ng lint"
+    "lint": "ng lint --fix"
   },
   "private": true,
   "dependencies": {
@@ -58,6 +58,8 @@
     "@typescript-eslint/eslint-plugin": "5.48.2",
     "@typescript-eslint/parser": "5.48.2",
     "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",

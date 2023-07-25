@@ -5,21 +5,24 @@ import { isSignedIn } from '../../../shared/configs/auth';
 import { Urls } from '../../../shared/configs/urls';
 import jwt_decode from 'jwt-decode';
 import { Token } from '../../../shared/models/token';
-import { getAccessToken, revokeUser } from 'src/app/modules/shared/commons/cache-store';
+import {
+  getAccessToken,
+  revokeUser,
+} from 'src/app/modules/shared/commons/cache-store';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
-  @Input('toggleSideBar') toggleSideBar = true;
-  @Input('logoHeader') logoHeader = false;
+  @Input() toggleSideBar = true;
+  @Input() logoHeader = false;
 
   constructor(
     public translate: TranslateService,
-    private router: Router,
-  ) { }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     console.log(this.translate.currentLang);
@@ -30,15 +33,17 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   darkModeSwitch() {
-    var toggleSwitch: any = document.querySelector('.theme-switch input[type="checkbox"]');
-    var currentTheme: any = localStorage.getItem('theme');
-    var mainHeader: any = document.querySelector('.main-header');
-    var mainSidebar: any = document.querySelector('.main-sidebar');
+    const toggleSwitch: any = document.querySelector(
+      '.theme-switch input[type="checkbox"]'
+    );
+    const currentTheme: any = localStorage.getItem('theme');
+    const mainHeader: any = document.querySelector('.main-header');
+    const mainSidebar: any = document.querySelector('.main-sidebar');
 
     if (currentTheme) {
       if (currentTheme === 'dark') {
         if (!document.body.classList.contains('dark-mode')) {
-          document.body.classList.add("dark-mode");
+          document.body.classList.add('dark-mode');
         }
         if (mainHeader!.classList.contains('navbar-light')) {
           mainHeader!.classList.add('navbar-dark');
@@ -55,7 +60,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     function switchTheme(e: any) {
       if (e.target.checked) {
         if (!document.body.classList.contains('dark-mode')) {
-          document.body.classList.add("dark-mode");
+          document.body.classList.add('dark-mode');
         }
         if (mainHeader!.classList.contains('navbar-light')) {
           mainHeader!.classList.add('navbar-dark');
@@ -68,7 +73,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
         localStorage.setItem('theme', 'dark');
       } else {
         if (document.body.classList.contains('dark-mode')) {
-          document.body.classList.remove("dark-mode");
+          document.body.classList.remove('dark-mode');
         }
         if (mainHeader!.classList.contains('navbar-dark')) {
           mainHeader!.classList.add('navbar-light');
@@ -94,7 +99,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.router.navigate([Urls.signIn]);
   }
 
-  userInfo(){
+  userInfo() {
     //
   }
 
@@ -103,6 +108,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     const token: string | null = getAccessToken();
     const decode_token: Token = new Token(jwt_decode(token || ''));
 
-    return decode_token.user_name || "";
+    return decode_token.user_name || '';
   }
 }

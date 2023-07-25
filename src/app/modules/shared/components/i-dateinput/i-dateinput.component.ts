@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-declare var $: any;
+declare let $: any;
 
 @Component({
   selector: 'app-i-dateinput',
@@ -11,47 +11,49 @@ declare var $: any;
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: IDateinputComponent
-    }
-  ]
+      useExisting: IDateinputComponent,
+    },
+  ],
 })
-export class IDateinputComponent implements OnInit, AfterViewInit, ControlValueAccessor {
-  
+export class IDateinputComponent
+  implements OnInit, AfterViewInit, ControlValueAccessor
+{
   @Input()
-  set disabled(value: any) { this._disabled = value; }
-  get disabled() { return this._disabled; }
+  set disabled(value: any) {
+    this._disabled = value;
+  }
+  get disabled() {
+    return this._disabled;
+  }
   _disabled = false;
 
-  date = "";
+  date = '';
 
   onChange = (date: string) => {};
 
   onTouched = () => {};
 
   touched = false;
-  
-  id = "";
 
-  constructor() { 
+  id = '';
+
+  constructor() {
     this.id = this.uuidv4();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    let self = this;
+    const self = this;
     $(document).ready(function () {
-
       //Input mask
       $(`#${self.id}`).inputmask();
 
-      $(`#${self.id}`).keyup((e:any) => {
+      $(`#${self.id}`).keyup((e: any) => {
         self.markAsTouched();
         self.date = $(`#${self.id}`).val();
         self.onChange(self.date);
-      })
-
+      });
     });
   }
 
@@ -76,10 +78,13 @@ export class IDateinputComponent implements OnInit, AfterViewInit, ControlValueA
   }
 
   uuidv4() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
+      /[xy]/g,
+      function (c) {
+        const r = (Math.random() * 16) | 0,
+          v = c == 'x' ? r : (r & 0x3) | 0x8;
         return v.toString(16);
-    });
+      }
+    );
   }
-
 }
