@@ -32,6 +32,7 @@
             "style": "kebab-case"
           }
         ],
+        "@angular-eslint/no-empty-lifecycle-method": 0,
         "@typescript-eslint/no-explicit-any": 0,
         "@typescript-eslint/member-ordering": 0,
         "@typescript-eslint/naming-convention": 0,
