@@ -10,7 +10,6 @@ declare let Prism: any;
 export class CodeblockViewerComponent implements OnInit, AfterViewInit, AfterViewChecked {
   @Input() url = '';
   @Input() method = 'RESPONSE';
-  @Input('code') _code: BehaviorSubject<string> = new BehaviorSubject<string>('');
   @Input() type = 'javascript';
   isSubmit = true;
   @Input()
@@ -20,33 +19,29 @@ export class CodeblockViewerComponent implements OnInit, AfterViewInit, AfterVie
   get code() {
     return this._code.getValue();
   }
+  _code: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   @ViewChild('codeContent') codeContent!: ElementRef;
 
   highlighted = false;
 
-  constructor() {}
+  constructor() {
+    //
+  }
 
   ngOnInit(): void {
-    // this.initPrism();
-    // this._code.subscribe((res) => {
-    //   this.initPrism();
-    //   console.log(res);
-    // })
+    //
   }
 
   ngAfterViewInit(): void {
-    // this.setupCopyClipboardCodeBlock();
+    //
   }
 
   /**
    * Highlight blog post when it's ready
    */
   ngAfterViewChecked() {
-    // if (!this.highlighted) {
-    //   this.initPrism();
-    //   this.highlighted = true;
-    // }
+    //
   }
 
   /**
@@ -65,7 +60,7 @@ export class CodeblockViewerComponent implements OnInit, AfterViewInit, AfterVie
     const html_string = code != null ? Prism.highlight(code, Prism.languages[type], type) : '<span></span>';
 
     return (
-      html_string.replace(/\,/g, ',\n').replace(/\{/g, '{\n').replace(/\[/g, '[\n').replace(/\\/g, '') ||
+      html_string.replace(/\\,/g, ',\n').replace(/\{/g, '{\n').replace(/\[/g, '[\n').replace(/\\/g, '') ||
       '<span></span>'
     );
   }
@@ -84,14 +79,12 @@ export class CodeblockViewerComponent implements OnInit, AfterViewInit, AfterVie
     document.execCommand('Copy');
     document.body.removeChild(textArea);
     this.isSubmit = false;
-    // e.target.innerHTML = "Copied!"; //Đã lưu vào bộ nhớ tạm
-    this.resetStatusCopy(e);
+    this.resetStatusCopy();
   }
 
-  resetStatusCopy(e: any) {
+  resetStatusCopy() {
     setTimeout(() => {
       this.isSubmit = true;
-      // e.target.innerHTML = "Copy"
     }, 1000);
   }
 
@@ -100,31 +93,27 @@ export class CodeblockViewerComponent implements OnInit, AfterViewInit, AfterVie
    */
   setupCopyClipboardCodeBlock() {
     const copies = document.getElementsByClassName('copyClipBoard');
-    for (var i = 0; i < copies.length; i++) {
+    for (let i = 0; i < copies.length; i++) {
       const block = copies[i];
       console.log(i);
       block.addEventListener('click', function (event) {
         event.stopPropagation();
         console.log(i);
         const toolbar_el = block.parentElement;
-        const method_el = toolbar_el!.parentElement;
+        const method_el = toolbar_el?.parentElement;
 
-        const code_el = method_el!.getElementsByTagName('code');
-        // console.log(code_el);
+        const code_el: any = method_el?.getElementsByTagName('code');
 
         //Cảnh báo không tìm thấy nội dung code
-        if (code_el.length <= 0) {
+        if (code_el?.length <= 0) {
           console.log('Warning! Không tìm thấy vùng chưa nội dung code!');
         } else {
-          const copyText = code_el[0].textContent;
+          const copyText = code_el[0]?.textContent;
           const textArea = document.createElement('textarea');
           console.log(copyText);
           textArea.textContent = copyText;
-          // document.body.append(textArea);
           textArea.select();
           document.execCommand('Copy');
-
-          // alert('copied');
         }
       });
     }
