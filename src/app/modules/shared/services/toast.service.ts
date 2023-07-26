@@ -4,7 +4,6 @@ import { CustomToastService } from './custom-toast.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
 declare let $: any;
-declare let toastr: any;
 
 @Injectable({ providedIn: 'root' })
 export class ToastService {
@@ -27,29 +26,18 @@ export class ToastService {
     this.toasts.splice(0, this.toasts.length);
   }
 
-  jqueryToastAdminLte(
-    title: string,
-    subTitle: string,
-    delay: any = 2500,
-    className = '',
-    icon = ''
-  ) {
+  jqueryToastAdminLte(title: string, subTitle: string, delay: any = 2500, className = '', icon = '') {
     $(document).Toasts('create', {
       title: title,
       body: `${subTitle}`,
       autohide: true,
       delay: delay || 1500,
       class: className || '',
-      icon: icon || '',
+      icon: icon || ''
     });
   }
 
-  sweet2ToastNoti(
-    title: string,
-    icon = '',
-    position = 'center',
-    timer: any = 1500
-  ) {
+  sweet2ToastNoti(title: string, icon = '', position = 'center', timer: any = 1500) {
     Swal.fire({
       position: position,
       icon: icon,
@@ -57,8 +45,8 @@ export class ToastService {
       showConfirmButton: false,
       timer: timer,
       customClass: {
-        header: 'border-0',
-      },
+        header: 'border-0'
+      }
     });
   }
 

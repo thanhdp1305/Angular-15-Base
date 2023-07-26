@@ -11,10 +11,7 @@
     [disabled]="disabled || null"
     placeholder="dd/mm/yyyy"
     (change)="handleChangeInput($event)" />
-  <div
-    class="input-group-append"
-    [attr.data-target]="'#' + id"
-    data-toggle="datetimepicker">
+  <div class="input-group-append" [attr.data-target]="'#' + id" data-toggle="datetimepicker">
     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
   </div>
 </div>

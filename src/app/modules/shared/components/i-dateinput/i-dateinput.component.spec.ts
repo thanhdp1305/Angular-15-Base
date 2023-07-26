@@ -8,7 +8,7 @@ describe('IDateinputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [IDateinputComponent],
+      declarations: [IDateinputComponent]
     }).compileComponents();
   });
 

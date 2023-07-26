@@ -21,9 +21,9 @@ import { Api } from '../shared/networks/api';
     TranslateModule,
     SharedModule,
     NgSelectModule,
-    RouterModule.forChild(AuthRoutes),
+    RouterModule.forChild(AuthRoutes)
   ],
   providers: [AuthService, Api],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AuthModule {}

@@ -4,7 +4,7 @@ import { AbstractControlDirective, AbstractControl } from '@angular/forms';
 @Component({
   selector: 'app-form-error',
   templateUrl: './form-error.component.html',
-  styleUrls: ['./form-error.component.scss'],
+  styleUrls: ['./form-error.component.scss']
 })
 export class FormErrorComponent implements OnInit {
   @Input() isSubmit = false;
@@ -30,18 +30,12 @@ export class FormErrorComponent implements OnInit {
         this.isSubmit
       );
     } else {
-      return (
-        this.control &&
-        this.control.errors &&
-        (this.control.dirty || this.control.touched)
-      );
+      return this.control && this.control.errors && (this.control.dirty || this.control.touched);
     }
   }
 
   listOfErrors(): string[] {
-    return Object.keys(this.control.errors).map((field) =>
-      this.getMessage(field, this.control.errors[field])
-    );
+    return Object.keys(this.control.errors).map((field) => this.getMessage(field, this.control.errors[field]));
   }
 
   private getMessage(type: string, params: any) {

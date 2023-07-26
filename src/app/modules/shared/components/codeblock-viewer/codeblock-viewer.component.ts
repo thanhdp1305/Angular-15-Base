@@ -1,28 +1,16 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  AfterViewInit,
-  AfterViewChecked,
-  ViewChild,
-  ElementRef,
-} from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, AfterViewChecked, ViewChild, ElementRef } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 declare let Prism: any;
 @Component({
   selector: 'app-codeblock-viewer',
   templateUrl: './codeblock-viewer.component.html',
-  styleUrls: ['./codeblock-viewer.component.scss'],
+  styleUrls: ['./codeblock-viewer.component.scss']
 })
-export class CodeblockViewerComponent
-  implements OnInit, AfterViewInit, AfterViewChecked
-{
+export class CodeblockViewerComponent implements OnInit, AfterViewInit, AfterViewChecked {
   @Input() url = '';
   @Input() method = 'RESPONSE';
-  @Input('code') _code: BehaviorSubject<string> = new BehaviorSubject<string>(
-    ''
-  );
+  @Input('code') _code: BehaviorSubject<string> = new BehaviorSubject<string>('');
   @Input() type = 'javascript';
   isSubmit = true;
   @Input()
@@ -74,17 +62,11 @@ export class CodeblockViewerComponent
    * @param type
    */
   highLightCode(code: string, type = 'javascript'): string {
-    const html_string =
-      code != null
-        ? Prism.highlight(code, Prism.languages[type], type)
-        : '<span></span>';
+    const html_string = code != null ? Prism.highlight(code, Prism.languages[type], type) : '<span></span>';
 
     return (
-      html_string
-        .replace(/\,/g, ',\n')
-        .replace(/\{/g, '{\n')
-        .replace(/\[/g, '[\n')
-        .replace(/\\/g, '') || '<span></span>'
+      html_string.replace(/\,/g, ',\n').replace(/\{/g, '{\n').replace(/\[/g, '[\n').replace(/\\/g, '') ||
+      '<span></span>'
     );
   }
 

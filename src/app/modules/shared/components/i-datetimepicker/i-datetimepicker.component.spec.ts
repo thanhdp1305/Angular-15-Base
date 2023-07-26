@@ -8,7 +8,7 @@ describe('IDatetimepickerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [IDatetimepickerComponent],
+      declarations: [IDatetimepickerComponent]
     }).compileComponents();
   });
 

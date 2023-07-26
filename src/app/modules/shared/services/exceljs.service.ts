@@ -23,13 +23,13 @@ export class ExcelJsService {
         type: 'pattern',
         pattern: 'solid',
         fgColor: { argb: 'FFFFFF00' },
-        bgColor: { argb: 'FF0000FF' },
+        bgColor: { argb: 'FF0000FF' }
       };
       cell.border = {
         top: { style: 'thin' },
         left: { style: 'thin' },
         bottom: { style: 'thin' },
-        right: { style: 'thin' },
+        right: { style: 'thin' }
       };
     });
 
@@ -40,7 +40,7 @@ export class ExcelJsService {
     // // Generate Excel File with given name
     workbook.xlsx.writeBuffer().then((data: any) => {
       const blob = new Blob([data], {
-        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
       });
 
       const url = window.URL.createObjectURL(blob);

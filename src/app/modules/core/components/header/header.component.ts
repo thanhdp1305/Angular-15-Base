@@ -5,15 +5,12 @@ import { isSignedIn } from '../../../shared/configs/auth';
 import { Urls } from '../../../shared/configs/urls';
 import jwt_decode from 'jwt-decode';
 import { Token } from '../../../shared/models/token';
-import {
-  getAccessToken,
-  revokeUser,
-} from 'src/app/modules/shared/commons/cache-store';
+import { getAccessToken, revokeUser } from 'src/app/modules/shared/commons/cache-store';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
   @Input() toggleSideBar = true;
@@ -33,9 +30,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   darkModeSwitch() {
-    const toggleSwitch: any = document.querySelector(
-      '.theme-switch input[type="checkbox"]'
-    );
+    const toggleSwitch: any = document.querySelector('.theme-switch input[type="checkbox"]');
     const currentTheme: any = localStorage.getItem('theme');
     const mainHeader: any = document.querySelector('.main-header');
     const mainSidebar: any = document.querySelector('.main-sidebar');

@@ -8,7 +8,7 @@ describe('CodeblockViewerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CodeblockViewerComponent],
+      declarations: [CodeblockViewerComponent]
     }).compileComponents();
   }));
 

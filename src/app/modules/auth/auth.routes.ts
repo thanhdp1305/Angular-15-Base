@@ -6,11 +6,11 @@ export const AuthRoutes: Routes = [
   {
     path: 'sign-in',
     canActivate: [noAuthGuard],
-    component: SigninComponent,
+    component: SigninComponent
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'sign-in',
-  },
+    redirectTo: 'sign-in'
+  }
 ];

@@ -8,7 +8,7 @@ describe('GuestMainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GuestMainComponent],
+      declarations: [GuestMainComponent]
     }).compileComponents();
   });
 

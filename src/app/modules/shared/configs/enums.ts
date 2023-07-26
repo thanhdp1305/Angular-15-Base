@@ -1,7 +1,7 @@
 export enum ModalType {
   'blank' = '',
   'success' = 'success',
-  'error' = 'error',
+  'error' = 'error'
 }
 
 export enum ToastClassName {
@@ -9,10 +9,10 @@ export enum ToastClassName {
   'info' = 'bg-info',
   'success' = 'bg-success',
   'danger' = 'bg-danger',
-  'warning' = 'bg-warning',
+  'warning' = 'bg-warning'
 }
 
 export enum ServiceEnum {
   'AUTH' = '/authservice-service',
-  'MANAGEMENT_SERVICE' = '/core-service',
+  'MANAGEMENT_SERVICE' = '/core-service'
 }

@@ -1,18 +1,5 @@
-import {
-  animate,
-  keyframes,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
-import {
-  AfterViewInit,
-  ChangeDetectorRef,
-  Component,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: '[custom-toast-template]',
@@ -31,7 +18,7 @@ import {
         z-index: 9999999999999;
         transform: translateX(-50%);
       }
-    `,
+    `
   ],
   template: `
     <div [@flyInOut]="state" class="econ-toast">
@@ -43,7 +30,7 @@ import {
       state(
         'inactive',
         style({
-          opacity: 0,
+          opacity: 0
         })
       ),
       transition(
@@ -53,12 +40,12 @@ import {
           keyframes([
             style({
               transform: 'translate(-50%, 200px)',
-              opacity: 0,
+              opacity: 0
             }),
             style({
               transform: 'translate(-50%, 0px)',
-              opacity: 1,
-            }),
+              opacity: 1
+            })
           ])
         )
       ),
@@ -69,22 +56,20 @@ import {
           keyframes([
             style({
               transform: 'translate(-50%, 0px)',
-              opacity: 1,
+              opacity: 1
             }),
             style({
               transform: 'translate(-50%, 200px)',
-              opacity: 0,
-            }),
+              opacity: 0
+            })
           ])
         )
-      ),
-    ]),
+      )
+    ])
   ],
-  preserveWhitespaces: false,
+  preserveWhitespaces: false
 })
-export class CustomToastTemplateComponent
-  implements OnInit, AfterViewInit, OnDestroy
-{
+export class CustomToastTemplateComponent implements OnInit, AfterViewInit, OnDestroy {
   state = 'inactive';
   msg = 'Đây là nội dung thông báo của bạn.';
 

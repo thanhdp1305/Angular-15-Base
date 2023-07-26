@@ -1,9 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  REGEXP_DATE_INPUT,
-  REGEXP_EMAIL,
-} from '../../../shared/configs/regexp';
+import { REGEXP_DATE_INPUT, REGEXP_EMAIL } from '../../../shared/configs/regexp';
 import { ModalControl } from '../../../shared/services/modal-control.service';
 import { ToastService } from '../../../shared/services/toast.service';
 import * as moment from 'moment';
@@ -12,7 +9,7 @@ declare let $: any;
 @Component({
   selector: 'app-example',
   templateUrl: './example.component.html',
-  styleUrls: ['./example.component.scss'],
+  styleUrls: ['./example.component.scss']
 })
 export class ExampleComponent implements OnInit, AfterViewInit {
   formDateInput!: FormGroup;
@@ -35,7 +32,7 @@ export class ExampleComponent implements OnInit, AfterViewInit {
     this.formDateInput = this.fb.group({
       datepicker: ['', Validators.pattern(REGEXP_DATE_INPUT)],
       dateInputMask: ['', Validators.pattern(REGEXP_DATE_INPUT)],
-      daterange: [''],
+      daterange: ['']
     });
   }
 
@@ -45,7 +42,7 @@ export class ExampleComponent implements OnInit, AfterViewInit {
   openModal() {
     this.modalcontrol.show({
       title: 'modal_title_noti',
-      content: 'text_no_results',
+      content: 'text_no_results'
     });
   }
 
@@ -59,8 +56,8 @@ export class ExampleComponent implements OnInit, AfterViewInit {
   validationError = {
     email: {
       required: 'Vui lòng nhập email',
-      pattern: 'Sai định dạng email',
-    },
+      pattern: 'Sai định dạng email'
+    }
   };
 
   /**
@@ -68,7 +65,7 @@ export class ExampleComponent implements OnInit, AfterViewInit {
    */
   makeFormValidation() {
     this.formValidation = this.fb.group({
-      email: ['', [Validators.required, Validators.pattern(REGEXP_EMAIL)]],
+      email: ['', [Validators.required, Validators.pattern(REGEXP_EMAIL)]]
     });
   }
 
@@ -105,7 +102,7 @@ export class ExampleComponent implements OnInit, AfterViewInit {
     { value: 1, label: 'Giá trị 1' },
     { value: 2, label: 'Giá trị 2' },
     { value: 3, label: 'Giá trị 3' },
-    { value: 4, label: 'Giá trị 4' },
+    { value: 4, label: 'Giá trị 4' }
   ];
   selectedItem: any = null; //Giá trị mặc định của ng-select là null
   eventChangeSelected: any = null;

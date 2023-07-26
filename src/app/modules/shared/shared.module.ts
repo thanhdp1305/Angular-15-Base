@@ -1,10 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
-import {
-  NgbActiveModal,
-  NgbDropdownModule,
-  NgbModule,
-} from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { Api } from '../shared/networks/api';
 import { FormErrorComponent } from './components/form-error/form-error.component';
@@ -28,15 +24,9 @@ import { TrimValueDirective } from './directives/trim-value.directive';
     DragDropDirective,
     CodeblockViewerComponent,
     CustomToastTemplateComponent,
-    TrimValueDirective,
+    TrimValueDirective
   ],
-  imports: [
-    CommonModule,
-    NgbModule,
-    TranslateModule,
-    NgSelectModule,
-    NgbDropdownModule,
-  ],
+  imports: [CommonModule, NgbModule, TranslateModule, NgSelectModule, NgbDropdownModule],
   providers: [Api, NgbActiveModal],
   exports: [
     FormErrorComponent,
@@ -45,8 +35,8 @@ import { TrimValueDirective } from './directives/trim-value.directive';
     IDaterangepickerComponent,
     DragDropDirective,
     CodeblockViewerComponent,
-    TrimValueDirective,
+    TrimValueDirective
   ],
-  schemas: [NO_ERRORS_SCHEMA],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class SharedModule {}

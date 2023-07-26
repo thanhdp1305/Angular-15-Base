@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-modal-template',
   templateUrl: './modal-template.component.html',
-  styleUrls: ['./modal-template.component.scss'],
+  styleUrls: ['./modal-template.component.scss']
 })
 export class ModalTemplateComponent implements OnInit {
   @Input() title = 'Thông báo';
@@ -23,7 +23,7 @@ export class ModalTemplateComponent implements OnInit {
 
   imgAlert = {
     success: '/assets/img/icon/success-icon.png',
-    error: '/assets/img/icon/error-icon.png',
+    error: '/assets/img/icon/error-icon.png'
   };
 
   constructor(

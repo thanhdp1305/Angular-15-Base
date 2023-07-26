@@ -24,9 +24,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     SharedModule,
     NgbPaginationModule,
     RouterModule.forChild(ConsoleRoutes),
-    NgSelectModule,
+    NgSelectModule
   ],
   providers: [Api],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class ConsoleModule {}

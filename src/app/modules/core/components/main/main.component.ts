@@ -4,7 +4,7 @@ declare let $: any;
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'],
+  styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit, AfterViewInit {
   constructor() {}
@@ -14,10 +14,7 @@ export class MainComponent implements OnInit, AfterViewInit {
 
     // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function () {
-      if (
-        document.body.scrollTop > 20 ||
-        document.documentElement.scrollTop > 20
-      ) {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         mybutton!.style.display = 'block';
       } else {
         mybutton!.style.display = 'none';

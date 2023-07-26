@@ -1,13 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  Renderer2,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 declare let $: any;
@@ -19,13 +10,11 @@ declare let $: any;
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: IDatetimepickerComponent,
-    },
-  ],
+      useExisting: IDatetimepickerComponent
+    }
+  ]
 })
-export class IDatetimepickerComponent
-  implements OnInit, AfterViewInit, ControlValueAccessor
-{
+export class IDatetimepickerComponent implements OnInit, AfterViewInit, ControlValueAccessor {
   @Input()
   set disabled(value: any) {
     this._disabled = value;
@@ -84,7 +73,7 @@ export class IDatetimepickerComponent
       $(`#${self.id}`).datetimepicker({
         format: 'DD/MM/YYYY',
         minDate: self.minDate || false,
-        maxDate: self.maxDate || false,
+        maxDate: self.maxDate || false
       });
 
       $(`#${self.id}`).keyup((e: any) => {
@@ -128,14 +117,11 @@ export class IDatetimepickerComponent
   }
 
   uuidv4() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
-      /[xy]/g,
-      function (c) {
-        const r = (Math.random() * 16) | 0,
-          v = c == 'x' ? r : (r & 0x3) | 0x8;
-        return v.toString(16);
-      }
-    );
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      const r = (Math.random() * 16) | 0,
+        v = c == 'x' ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
   }
 
   handleChangeInput(e: any): void {

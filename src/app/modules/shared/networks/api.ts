@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpParams,
-  HttpClient,
-  HttpHeaders,
-  HttpErrorResponse,
-} from '@angular/common/http';
+import { HttpParams, HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -12,7 +7,7 @@ import { environment } from 'src/environments/environment';
 import { getAccessToken } from '../commons/cache-store';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class Api {
   responseType = {
@@ -20,7 +15,7 @@ export class Api {
     arraybuffer: 'arraybuffer',
     json: 'json',
     text: 'text',
-    none: '',
+    none: ''
   };
 
   constructor(
@@ -46,7 +41,7 @@ export class Api {
    */
   get(url: string, queryParams: any = null) {
     const header: any = {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     };
     if (queryParams) {
       const qrParams = new HttpParams();
@@ -68,7 +63,7 @@ export class Api {
    */
   post(url: string, data: any) {
     const header = {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     };
     data = JSON.stringify(data);
     return this.http
@@ -83,11 +78,7 @@ export class Api {
    */
   postMultiPart(url: string, data: FormData) {
     return this.http
-      .post(
-        environment.apiUrl + url,
-        data,
-        this.optionsRequest({}, false, 'blob')
-      )
+      .post(environment.apiUrl + url, data, this.optionsRequest({}, false, 'blob'))
       .pipe(catchError(this.handleError));
   }
 
@@ -97,9 +88,7 @@ export class Api {
    * @param data
    */
   postMultiPartJSON(url: string, data: FormData) {
-    return this.http
-      .post(environment.apiUrl + url, data, this.optionsRequest())
-      .pipe(catchError(this.handleError));
+    return this.http.post(environment.apiUrl + url, data, this.optionsRequest()).pipe(catchError(this.handleError));
   }
 
   /**
@@ -109,7 +98,7 @@ export class Api {
    */
   put(url: string, data: string) {
     const header = {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     };
     data = JSON.stringify(data);
     return this.http
@@ -123,9 +112,7 @@ export class Api {
    * @param data
    */
   putMultiPart(url: string, data: FormData) {
-    return this.http
-      .put(environment.apiUrl + url, data, this.optionsRequest())
-      .pipe(catchError(this.handleError));
+    return this.http.put(environment.apiUrl + url, data, this.optionsRequest()).pipe(catchError(this.handleError));
   }
 
   /**
@@ -139,14 +126,12 @@ export class Api {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: `Bearer ` + token,
-        'Accept-Language': this.language,
+        'Accept-Language': this.language
       }),
-      body: JSON.stringify(param),
+      body: JSON.stringify(param)
     };
 
-    return this.http
-      .delete(environment.apiUrl + url + url, options)
-      .pipe(catchError(this.handleError));
+    return this.http.delete(environment.apiUrl + url + url, options).pipe(catchError(this.handleError));
   }
 
   optionsRequest(
@@ -161,7 +146,7 @@ export class Api {
       'Cache-Control': 'no-cache',
       Pragma: 'no-cache',
       'Accept-Language': this.language,
-      ...headers,
+      ...headers
     };
     const options: any = { headers: new HttpHeaders(header) };
 
@@ -169,11 +154,7 @@ export class Api {
       options['reportProgress'] = true;
     }
 
-    if (
-      responseType != '' &&
-      responseType != null &&
-      responseType != undefined
-    ) {
+    if (responseType != '' && responseType != null && responseType != undefined) {
       options['responseType'] = responseType;
     }
 
@@ -196,9 +177,7 @@ export class Api {
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,
-      console.error(
-        `Backend returned code ${error?.status}, ` + `body was: ${error?.error}`
-      );
+      console.error(`Backend returned code ${error?.status}, ` + `body was: ${error?.error}`);
     }
 
     if (error?.error?.message == 'ECT-00001110') {

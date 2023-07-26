@@ -9,7 +9,7 @@ export const ConsoleRoutes: Routes = [
   {
     path: '',
     canActivate: [noAuthGuard],
-    loadChildren: () => import('../auth/auth.module').then((m) => m.AuthModule),
+    loadChildren: () => import('../auth/auth.module').then((m) => m.AuthModule)
   },
   {
     path: '',
@@ -18,17 +18,17 @@ export const ConsoleRoutes: Routes = [
     children: [
       {
         path: 'dashboard',
-        component: DashboardComponent,
+        component: DashboardComponent
       },
       {
         path: 'example-document',
-        component: ExampleComponent,
+        component: ExampleComponent
       },
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'dashboard',
-      },
-    ],
-  },
+        redirectTo: 'dashboard'
+      }
+    ]
+  }
 ];

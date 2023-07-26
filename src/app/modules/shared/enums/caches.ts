@@ -1,3 +1,3 @@
 export enum CacheKeys {
-  'appToken' = 'APP_TOKEN',
+  'appToken' = 'APP_TOKEN'
 }

@@ -2,15 +2,8 @@
   <h5 class="modal-title" style="font-weight: 700; margin-right: auto">
     {{ title | translate }}
   </h5>
-  <button
-    *ngIf="!noClose"
-    type="button"
-    class="close"
-    aria-label="Close"
-    (click)="activeModal.dismiss('Cross click')">
-    <span
-      aria-hidden="true"
-      class="btn-light btn-alert-exit bg-exit-btn d-inline-flex p-2 rounded">
+  <button *ngIf="!noClose" type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true" class="btn-light btn-alert-exit bg-exit-btn d-inline-flex p-2 rounded">
       <img src="assets/media/svg/icon-close.svg" width="18" height="18" />
     </span>
   </button>
@@ -18,9 +11,7 @@
 <div class="modal-body text-left py-0 enable-scroll">
   <div [innerHTML]="message | translate" class="mb-0"></div>
 </div>
-<div
-  *ngIf="!hideAllButton"
-  class="modal-footer border-0 d-flex justify-content-end">
+<div *ngIf="!hideAllButton" class="modal-footer border-0 d-flex justify-content-end">
   <button
     type="button"
     class="btn btn-outline-primary d-inline-flex"

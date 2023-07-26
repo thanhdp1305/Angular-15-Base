@@ -3,7 +3,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-guest-main',
   templateUrl: './guest-main.component.html',
-  styleUrls: ['./guest-main.component.scss'],
+  styleUrls: ['./guest-main.component.scss']
 })
 export class GuestMainComponent implements OnInit, AfterViewInit {
   constructor() {}
@@ -13,10 +13,7 @@ export class GuestMainComponent implements OnInit, AfterViewInit {
 
     // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function () {
-      if (
-        document.body.scrollTop > 20 ||
-        document.documentElement.scrollTop > 20
-      ) {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         mybutton!.style.display = 'block';
       } else {
         mybutton!.style.display = 'none';
@@ -25,8 +22,7 @@ export class GuestMainComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    document.body.className =
-      'control-sidebar-slide-open sidebar-collapse layout-navbar-fixed';
+    document.body.className = 'control-sidebar-slide-open sidebar-collapse layout-navbar-fixed';
   }
 
   topFunction() {

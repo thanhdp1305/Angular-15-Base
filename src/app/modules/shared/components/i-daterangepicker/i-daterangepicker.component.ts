@@ -11,13 +11,11 @@ declare let moment: any;
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: IDaterangepickerComponent,
-    },
-  ],
+      useExisting: IDaterangepickerComponent
+    }
+  ]
 })
-export class IDaterangepickerComponent
-  implements OnInit, AfterViewInit, ControlValueAccessor
-{
+export class IDaterangepickerComponent implements OnInit, AfterViewInit, ControlValueAccessor {
   @Input()
   set disabled(value: any) {
     this._disabled = value;
@@ -58,24 +56,18 @@ export class IDaterangepickerComponent
         timePickerIncrement: 30,
         alwaysShowCalendars: true,
         locale: {
-          format: 'DD/MM/YYYY', //hh:mm A
+          format: 'DD/MM/YYYY' //hh:mm A
         },
         ranges: {
           Today: [moment(), moment()],
-          Yesterday: [
-            moment().subtract(1, 'days'),
-            moment().subtract(1, 'days'),
-          ],
+          Yesterday: [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
           'Last 7 Days': [moment().subtract(6, 'days'), moment()],
           'Last 30 Days': [moment().subtract(29, 'days'), moment()],
           'This Month': [moment().startOf('month'), moment().endOf('month')],
-          'Last Month': [
-            moment().subtract(1, 'month').startOf('month'),
-            moment().subtract(1, 'month').endOf('month'),
-          ],
+          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
         },
         startDate: moment().subtract(2, 'month').startOf('month'),
-        endDate: moment().endOf('month'),
+        endDate: moment().endOf('month')
       });
 
       $(`#${self.id}`).keyup((e: any) => {
@@ -113,13 +105,10 @@ export class IDaterangepickerComponent
   }
 
   uuidv4() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
-      /[xy]/g,
-      function (c) {
-        const r = (Math.random() * 16) | 0,
-          v = c == 'x' ? r : (r & 0x3) | 0x8;
-        return v.toString(16);
-      }
-    );
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      const r = (Math.random() * 16) | 0,
+        v = c == 'x' ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
   }
 }

@@ -11,13 +11,11 @@ declare let $: any;
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: IDateinputComponent,
-    },
-  ],
+      useExisting: IDateinputComponent
+    }
+  ]
 })
-export class IDateinputComponent
-  implements OnInit, AfterViewInit, ControlValueAccessor
-{
+export class IDateinputComponent implements OnInit, AfterViewInit, ControlValueAccessor {
   @Input()
   set disabled(value: any) {
     this._disabled = value;
@@ -78,13 +76,10 @@ export class IDateinputComponent
   }
 
   uuidv4() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
-      /[xy]/g,
-      function (c) {
-        const r = (Math.random() * 16) | 0,
-          v = c == 'x' ? r : (r & 0x3) | 0x8;
-        return v.toString(16);
-      }
-    );
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      const r = (Math.random() * 16) | 0,
+        v = c == 'x' ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
   }
 }

@@ -5,18 +5,18 @@ import {
   EmbeddedViewRef,
   Injectable,
   Injector,
-  ViewContainerRef,
+  ViewContainerRef
 } from '@angular/core';
 import { CustomToastTemplateComponent } from '../components/custom-toast-template/custom-toast-template.component';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class CustomToastService {
   config: any = {
     component: null,
     msg: 'Đây là nội dung thông báo của bạn.',
-    timeout: 3000,
+    timeout: 3000
   };
 
   constructor(
@@ -48,8 +48,7 @@ export class CustomToastService {
     this.appRef.attachView(componentRef.hostView);
 
     // 3. Get DOM element from component
-    const domElem = (componentRef.hostView as EmbeddedViewRef<any>)
-      .rootNodes[0] as HTMLElement;
+    const domElem = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
 
     // 4. Append DOM element to the body
     document.body.appendChild(domElem);
