@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterViewInit, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './modal-template.component.html',
   styleUrls: ['./modal-template.component.scss']
 })
-export class ModalTemplateComponent implements OnInit {
+export class ModalTemplateComponent implements OnInit, AfterContentChecked, AfterViewInit {
   @Input() title = 'Thông báo';
   @Input() typeAlert = '';
   @Input() message = '';

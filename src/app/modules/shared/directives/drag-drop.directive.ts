@@ -4,7 +4,7 @@ import { Directive, EventEmitter, Output, HostBinding, HostListener } from '@ang
   selector: '[appDragDrop]'
 })
 export class DragDropDirective {
-  @Output() onFileDropped = new EventEmitter<any>();
+  @Output() dropped = new EventEmitter<any>();
 
   @HostBinding('style.opacity') private opacity = '1';
 
@@ -29,7 +29,7 @@ export class DragDropDirective {
     this.opacity = '1';
     const files = evt.dataTransfer.files;
     if (files.length > 0) {
-      this.onFileDropped.emit(files);
+      this.dropped.emit(files);
     }
   }
 }
