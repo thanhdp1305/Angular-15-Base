@@ -1,0 +1,15 @@
+.btn {
+  &.btn-has-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-content: space-between;
+  }
+  &.btn-only-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &.fix-h-39px {
+    height: 39px;
+  }
+}

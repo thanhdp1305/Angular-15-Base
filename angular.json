@@ -36,10 +36,17 @@
               "src/assets/theme/admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css",
               "src/assets/theme/admin-lte/plugins/sweetalert2/sweetalert2.min.css",
               "src/assets/theme/admin-lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.css",
-              "src/styles.scss",
-              "src/assets/css/layout.css",
-              "src/assets/css/table.css",
-              "src/assets/css/modal.css"
+              "src/styles.scss",          
+              "src/assets/scss/icons.scss",
+              "src/assets/scss/table.scss",
+              "src/assets/scss/modal.scss",
+              "src/assets/scss/layout.scss",
+              "src/assets/scss/menu.scss",
+              "src/assets/scss/text.scss",
+              "src/assets/scss/card.scss",
+              "src/assets/scss/button.scss",
+              "src/assets/scss/pagination.scss",
+              "src/assets/scss/dropdown.scss"
             ],
             "scripts": [
               "src/assets/theme/admin-lte/plugins/jquery/jquery.min.js",

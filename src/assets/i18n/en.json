@@ -24,5 +24,8 @@
     "version_dialog_title": "New version",
     "version_dialog_descriptions": "A new version has been uploaded.<br><i>Click <b>\"Download now\"</b> to experience the latest version.<i>",
     "version_dialog_download_now": "Download now",
-    "version_dialog_later": "Later"
+    "version_dialog_later": "Later",
+    "menu_1": "Parent Menu",
+    "child_menu_1": "Children Menu",
+    "documents": "Documents"
 }

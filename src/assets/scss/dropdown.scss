@@ -1,0 +1,13 @@
+.dropdown-menu {
+  border: 0;
+  padding: 0.35rem;
+  border-radius: 0.35rem;
+  .dropdown-item {
+    padding: 0.35rem;
+    border-radius: 0.35rem;
+    &.has-icon {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

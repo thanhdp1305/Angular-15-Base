@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { UiHelperService } from 'src/app/modules/shared/services/ui-helper.service';
 
 @Component({
   selector: 'app-guest-main',
@@ -6,23 +7,17 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
   styleUrls: ['./guest-main.component.scss']
 })
 export class GuestMainComponent implements OnInit, AfterViewInit {
-  constructor() {}
-  ngAfterViewInit(): void {
-    // Get the button:
-    const mybutton = document.getElementById('back-to-top');
+  constructor(private uiHelper: UiHelperService) {
+    // False: Marking didn't load treeview
+    this.uiHelper.setIsLoadedTreeView(false);
+  }
 
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton!.style.display = 'block';
-      } else {
-        mybutton!.style.display = 'none';
-      }
-    };
+  ngAfterViewInit(): void {
+    //
   }
 
   ngOnInit(): void {
-    document.body.className = 'control-sidebar-slide-open sidebar-collapse layout-navbar-fixed';
+    //
   }
 
   topFunction() {

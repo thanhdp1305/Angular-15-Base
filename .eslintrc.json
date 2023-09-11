@@ -20,7 +20,6 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "app",
             "style": "camelCase"
           }
         ],
@@ -28,7 +27,6 @@
           "error",
           {
             "type": "element",
-            "prefix": "app",
             "style": "kebab-case"
           }
         ],
@@ -37,7 +35,12 @@
         "@typescript-eslint/member-ordering": 0,
         "@typescript-eslint/naming-convention": 0,
         "@typescript-eslint/no-unused-vars": ["warn"],
-        "prettier/prettier": ["warn"]
+        "prettier/prettier": [
+          "warn",
+          {
+            "endOfLine": "auto"
+          }    
+        ]
       }
     },
     {
@@ -55,7 +58,7 @@
       "extends": ["plugin:prettier/recommended"],
       "rules": {
         // NOTE: WE ARE OVERRIDING THE DEFAULT CONFIG TO ALWAYS SET THE PARSER TO ANGULAR (SEE BELOW)
-        "prettier/prettier": ["warn", { "parser": "angular" }]
+        "prettier/prettier": ["warn", { "parser": "angular", "endOfLine": "auto" }]
       }
     }
   ]
