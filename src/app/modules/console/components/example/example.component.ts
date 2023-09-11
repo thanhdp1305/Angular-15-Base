@@ -5,7 +5,6 @@ import { ModalControl } from '../../../shared/services/modal-control.service';
 import { ToastService } from '../../../shared/services/toast.service';
 import * as moment from 'moment';
 
-declare let $: any;
 @Component({
   selector: 'app-example',
   templateUrl: './example.component.html',
@@ -24,9 +23,13 @@ export class ExampleComponent implements OnInit, AfterViewInit {
     this.makeFormValidation();
   }
 
-  ngAfterViewInit(): void {}
+  ngAfterViewInit(): void {
+    //
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    //
+  }
 
   makeForm() {
     this.formDateInput = this.fb.group({
@@ -78,7 +81,7 @@ export class ExampleComponent implements OnInit, AfterViewInit {
 
   //Toast
   toast() {
-    this.toastControl.jqueryToastAdminLte('Thông báo', 'Nội dung thông báo');
+    this.toastControl.jqueryToastAdminLte('Notification', 'Here is your notification content.');
   }
 
   toastSweet2() {

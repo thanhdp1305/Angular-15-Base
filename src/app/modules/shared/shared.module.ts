@@ -10,9 +10,8 @@ import { IDateinputComponent } from './components/i-dateinput/i-dateinput.compon
 import { IDaterangepickerComponent } from './components/i-daterangepicker/i-daterangepicker.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { DragDropDirective } from './directives/drag-drop.directive';
-import { CodeblockViewerComponent } from './components/codeblock-viewer/codeblock-viewer.component';
-import { CustomToastTemplateComponent } from './components/custom-toast-template/custom-toast-template.component';
 import { TrimValueDirective } from './directives/trim-value.directive';
+import { SnackbarTemplateComponent } from './components/snackbar-template/snackbar-template.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +21,8 @@ import { TrimValueDirective } from './directives/trim-value.directive';
     IDateinputComponent,
     IDaterangepickerComponent,
     DragDropDirective,
-    CodeblockViewerComponent,
-    CustomToastTemplateComponent,
-    TrimValueDirective
+    TrimValueDirective,
+    SnackbarTemplateComponent
   ],
   imports: [CommonModule, NgbModule, TranslateModule, NgSelectModule, NgbDropdownModule],
   providers: [Api, NgbActiveModal],
@@ -34,7 +32,6 @@ import { TrimValueDirective } from './directives/trim-value.directive';
     IDateinputComponent,
     IDaterangepickerComponent,
     DragDropDirective,
-    CodeblockViewerComponent,
     TrimValueDirective
   ],
   schemas: [NO_ERRORS_SCHEMA]

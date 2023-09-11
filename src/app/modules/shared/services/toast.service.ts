@@ -1,7 +1,7 @@
 import { Injectable, TemplateRef } from '@angular/core';
-import { CustomToastTemplateComponent } from '../components/custom-toast-template/custom-toast-template.component';
-import { CustomToastService } from './custom-toast.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { SnackbarTemplateComponent } from '../components/snackbar-template/snackbar-template.component';
+import { SnackBarService } from './snackbar.service';
 
 declare let $: any;
 
@@ -10,7 +10,7 @@ export class ToastService {
   toasts: any[] = [];
 
   constructor(
-    private customToastService: CustomToastService,
+    private snackbarService: SnackBarService,
     private sanitize: DomSanitizer
   ) {}
 
@@ -50,10 +50,10 @@ export class ToastService {
     });
   }
 
-  toastSnackBar(msg = 'Đây là nội dung thông báo của bạn.') {
-    this.customToastService.config.component = CustomToastTemplateComponent;
-    this.customToastService.config.msg = msg;
-    this.customToastService.config.timeout = 1500;
-    this.customToastService.show(msg);
+  toastSnackBar(msg = 'Here is your notifications') {
+    this.snackbarService.config.component = SnackbarTemplateComponent;
+    this.snackbarService.config.msg = msg;
+    this.snackbarService.config.timeout = 1500;
+    this.snackbarService.show(msg);
   }
 }

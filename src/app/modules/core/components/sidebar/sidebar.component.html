@@ -1,18 +1,37 @@
-<aside class="main-sidebar navbar-white">
+<aside class="main-sidebar navbar-white elevation-2">
   <!-- elevation-4 -->
-  <a href="/home" class="brand-link bg-primary">
-    <!-- <img src="" alt="logo" class="brand-image"> -->
-    <span class="brand-text text-white font-weight-bold">{{ 'app_name' | translate }}</span>
+  <a href="/home" class="brand-link">
+    <img src="assets/media/png/ang-logo.png" alt="logo" class="brand-image" />
+    <span class="brand-text text-primary font-weight-bold">{{ 'app_name' | translate }}</span>
   </a>
 
   <div class="sidebar">
-    <hr />
-    <nav *ngIf="isLocal" class="">
+    <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
-          <a [routerLink]="urls.exampleDocument" routerLinkActive="active" class="nav-link">
-            <p>Tài liệu code</p>
+          <a [routerLink]="urls.exampleDocument" routerLinkActive="active" class="nav-link nav-item-tdp cursor-pointer">
+            <em class="material-symbols-rounded">description</em>
+            <p>{{ 'documents' | translate }}</p>
           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-item-tdp cursor-pointer">
+            <em class="material-symbols-rounded">settings</em>
+            <p>
+              {{ 'menu_1' | translate }}
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a class="nav-link nav-item-tdp cursor-pointer">
+                <em class="material-symbols-rounded">fiber_manual_record</em>
+                <p>
+                  {{ 'child_menu_1' | translate }}
+                </p>
+              </a>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>

@@ -40,15 +40,15 @@ export class HeaderComponent implements OnInit, AfterViewInit {
         if (!document.body.classList.contains('dark-mode')) {
           document.body.classList.add('dark-mode');
         }
-        if (mainHeader!.classList.contains('navbar-light')) {
-          mainHeader!.classList.add('navbar-dark');
-          mainHeader!.classList.remove('navbar-light');
+        if (mainHeader?.classList.contains('navbar-light')) {
+          mainHeader.classList.add('navbar-dark');
+          mainHeader?.classList.remove('navbar-light');
         }
-        if (mainSidebar!.classList.contains('navbar-light')) {
-          mainSidebar!.classList.add('navbar-dark');
-          mainSidebar!.classList.remove('navbar-light');
+        if (mainSidebar?.classList.contains('navbar-light')) {
+          mainSidebar?.classList.add('navbar-dark');
+          mainSidebar?.classList.remove('navbar-light');
         }
-        toggleSwitch!.checked = true;
+        toggleSwitch.checked = true;
       }
     }
 
@@ -57,26 +57,26 @@ export class HeaderComponent implements OnInit, AfterViewInit {
         if (!document.body.classList.contains('dark-mode')) {
           document.body.classList.add('dark-mode');
         }
-        if (mainHeader!.classList.contains('navbar-light')) {
-          mainHeader!.classList.add('navbar-dark');
-          mainHeader!.classList.remove('navbar-light');
+        if (mainHeader?.classList.contains('navbar-light')) {
+          mainHeader?.classList.add('navbar-dark');
+          mainHeader?.classList.remove('navbar-light');
         }
-        if (mainSidebar!.classList.contains('navbar-light')) {
-          mainSidebar!.classList.add('navbar-dark');
-          mainSidebar!.classList.remove('navbar-light');
+        if (mainSidebar?.classList.contains('navbar-light')) {
+          mainSidebar?.classList.add('navbar-dark');
+          mainSidebar?.classList.remove('navbar-light');
         }
         localStorage.setItem('theme', 'dark');
       } else {
         if (document.body.classList.contains('dark-mode')) {
           document.body.classList.remove('dark-mode');
         }
-        if (mainHeader!.classList.contains('navbar-dark')) {
-          mainHeader!.classList.add('navbar-light');
-          mainHeader!.classList.remove('navbar-dark');
+        if (mainHeader?.classList.contains('navbar-dark')) {
+          mainHeader?.classList.add('navbar-light');
+          mainHeader?.classList.remove('navbar-dark');
         }
-        if (mainSidebar!.classList.contains('navbar-dark')) {
-          mainSidebar!.classList.add('navbar-light');
-          mainSidebar!.classList.remove('navbar-dark');
+        if (mainSidebar?.classList.contains('navbar-dark')) {
+          mainSidebar?.classList.add('navbar-light');
+          mainSidebar?.classList.remove('navbar-dark');
         }
         localStorage.setItem('theme', 'light');
       }
@@ -91,7 +91,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   signOut() {
     revokeUser();
-    this.router.navigate([Urls.signIn]);
+    window.location.href = '/console/sign-in';
   }
 
   userInfo() {

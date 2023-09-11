@@ -24,5 +24,8 @@
     "version_dialog_title": "Thông báo phiên bản mới",
     "version_dialog_descriptions": "Có phiên bản mới đã được tải lên.<br><i>Nhấn <b>\"Tải về ngay\"</b> để trải nghiệm phiên bản mới nhất.<i>",
     "version_dialog_download_now": "Tải về ngay",
-    "version_dialog_later": "Để sau"
+    "version_dialog_later": "Để sau",
+    "menu_1": "Menu cha",
+    "child_menu_1": "Menu con",
+    "documents": "Tài liệu code"
 }

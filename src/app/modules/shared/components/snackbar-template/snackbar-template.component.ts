@@ -1,8 +1,8 @@
 import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
-  selector: '[custom-toast-template]',
+  selector: 'app-snackbar-template',
   styles: [
     `
       .econ-toast {
@@ -69,9 +69,9 @@ import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '
   ],
   preserveWhitespaces: false
 })
-export class CustomToastTemplateComponent implements OnInit, AfterViewInit, OnDestroy {
+export class SnackbarTemplateComponent implements OnInit, AfterViewInit, OnDestroy, AfterContentChecked {
   state = 'inactive';
-  msg = 'Đây là nội dung thông báo của bạn.';
+  msg = '';
 
   // constructor is only necessary when not using AoT
   constructor(private changeDetector: ChangeDetectorRef) {}
@@ -91,5 +91,7 @@ export class CustomToastTemplateComponent implements OnInit, AfterViewInit, OnDe
     }, 1);
   }
 
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+    //
+  }
 }
