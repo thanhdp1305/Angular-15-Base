@@ -12,6 +12,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { DragDropDirective } from './directives/drag-drop.directive';
 import { TrimValueDirective } from './directives/trim-value.directive';
 import { SnackbarTemplateComponent } from './components/snackbar-template/snackbar-template.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SnackbarTemplateComponent } from './components/snackbar-template/snackb
     IDaterangepickerComponent,
     DragDropDirective,
     TrimValueDirective,
-    SnackbarTemplateComponent
+    SnackbarTemplateComponent,
+    LoaderComponent
   ],
   imports: [CommonModule, NgbModule, TranslateModule, NgSelectModule, NgbDropdownModule],
   providers: [Api, NgbActiveModal],
@@ -32,7 +34,8 @@ import { SnackbarTemplateComponent } from './components/snackbar-template/snackb
     IDateinputComponent,
     IDaterangepickerComponent,
     DragDropDirective,
-    TrimValueDirective
+    TrimValueDirective,
+    LoaderComponent
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

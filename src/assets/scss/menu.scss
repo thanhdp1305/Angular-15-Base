@@ -29,3 +29,7 @@ li.nav-item.menu-open {
   color: $primary;
   background-color: rgba($color: $primary, $alpha: 0.2);
 }
+
+.nav-pills .nav-link:not(.active):hover {
+  background: $gray-100;
+}
