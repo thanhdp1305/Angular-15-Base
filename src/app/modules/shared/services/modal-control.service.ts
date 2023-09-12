@@ -19,7 +19,7 @@ export class ModalControl {
     modalRef.componentInstance.typeAlert = params?.type || ModalType.blank;
     modalRef.componentInstance.twoBtn = params?.showConfirmButton;
     modalRef.componentInstance.iconBtn1 = params?.cancelButton?.icon || '';
-    modalRef.componentInstance.titleButton1 = params?.cancelButton?.title || 'btn_ok';
+    modalRef.componentInstance.titleButton1 = params?.cancelButton?.title || 'btn_close';
     modalRef.componentInstance.callback1 = params?.cancelButton?.callback || null;
     modalRef.componentInstance.iconBtn2 = params?.confirmButton?.icon || '';
     modalRef.componentInstance.titleButton2 = params?.confirmButton?.title || '';

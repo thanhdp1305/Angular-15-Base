@@ -13,20 +13,20 @@
 </div>
 <div *ngIf="!hideAllButton" class="modal-footer border-0 d-flex justify-content-end">
   <button
-    type="button"
-    class="btn btn-outline-primary d-inline-flex"
-    (click)="activeModal.close('Close click'); actButton1()">
-    <span *ngIf="iconBtn1" class="material-icons mr-2">{{ iconBtn1 }}</span
-    >{{ titleButton1 | translate }}
-  </button>
-  <button
     *ngIf="twoBtn"
     type="button"
     class="btn btn-primary d-inline-flex"
-    [class.ml-3]="twoBtn"
     ngbAutofocus
     (click)="activeModal.close('Close click'); actButton2()">
     <span *ngIf="iconBtn2" class="material-icons mr-2">{{ iconBtn2 }}</span
     >{{ titleButton2 | translate }}
+  </button>
+  <button
+    type="button"
+    class="btn btn-outline-primary d-inline-flex"
+    [class.ml-2]="twoBtn"
+    (click)="activeModal.close('Close click'); actButton1()">
+    <span *ngIf="iconBtn1" class="material-icons mr-2">{{ iconBtn1 }}</span
+    >{{ titleButton1 | translate }}
   </button>
 </div>

@@ -47,7 +47,20 @@ export class ExampleComponent implements OnInit, AfterViewInit {
   openModal() {
     this.modalcontrol.show({
       title: 'modal_title_noti',
-      content: 'text_no_results'
+      content: 'text_no_results',
+      showConfirmButton: true,
+      confirmButton: {
+        title: 'btn_confirm',
+        callback: () => {
+          //
+        }
+      },
+      cancelButton: {
+        title: 'btn_cancel',
+        callback: () => {
+          //
+        }
+      }
     });
   }
 
