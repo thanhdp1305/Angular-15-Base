@@ -4,6 +4,7 @@ import { REGEXP_DATE_INPUT, REGEXP_EMAIL } from '../../../shared/configs/regexp'
 import { ModalControl } from '../../../shared/services/modal-control.service';
 import { ToastService } from '../../../shared/services/toast.service';
 import * as moment from 'moment';
+import { LoaderService } from 'src/app/modules/shared/services/loader.service';
 
 @Component({
   selector: 'app-example',
@@ -17,7 +18,8 @@ export class ExampleComponent implements OnInit, AfterViewInit {
   constructor(
     private fb: FormBuilder,
     private modalcontrol: ModalControl,
-    private toastControl: ToastService
+    private toastControl: ToastService,
+    private loader: LoaderService
   ) {
     this.makeForm();
     this.makeFormValidation();
@@ -116,5 +118,12 @@ export class ExampleComponent implements OnInit, AfterViewInit {
    */
   handleEventNgSelect(e: any) {
     this.eventChangeSelected = e;
+  }
+
+  showLoader(): void {
+    this.loader.showLoader();
+    setTimeout(() => {
+      this.loader.hideLoader();
+    }, 3000);
   }
 }

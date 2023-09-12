@@ -8,6 +8,7 @@ export class LoaderService {
   private apiCount = 0;
   private isLoadingSubject = new BehaviorSubject<boolean>(false);
   isLoading$ = this.isLoadingSubject.asObservable();
+  msg = ['Đang tải dữ liệu'];
 
   constructor() {
     //
